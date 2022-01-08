@@ -7,8 +7,8 @@ const Payment = () => {
 	const dispatch = useDispatch();
 	const stripeKey =
 		process.env.NODE_ENV === "production"
-			? process.env.stripePublishableKey
-			: process.env.REACT_APP_STRIPE_KEY;
+			? process.env.REACT_APP_STRIPE_KEY
+			: process.env.stripePublishableKey;
 	return (
 		<StripeCheckout
 			name={"Emailyx"}
