@@ -3,10 +3,11 @@ const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const User = require("../models/user.model");
 
 passport.serializeUser((user, done) => {
-	done(null, user.id); // _id
+	done(null, user.id); // _id, => saved to session => req.session.passport.user
 });
 
 passport.deserializeUser(async (id, done) => {
+	// attach to req.user
 	const user = await User.findById(id);
 	done(null, user);
 });
@@ -22,7 +23,6 @@ passport.use(
 		async (accessToken, refreshToken, profile, done) => {
 			const alreadyExist = await User.findOne({ googleId: profile.id });
 			if (alreadyExist) {
-				console.log("already exist, login better");
 				done(null, alreadyExist);
 			} else {
 				const user = await new User({ googleId: profile.id }).save();
