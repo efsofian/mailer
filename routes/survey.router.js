@@ -46,6 +46,7 @@ router.post("/api/surveys/webhooks", (req, res) => {
 				{
 					$inc: { [choice]: 1 },
 					$set: { "recipients.$.responded": true },
+					lastResponded: new Date(),
 				}
 			).exec();
 		})
