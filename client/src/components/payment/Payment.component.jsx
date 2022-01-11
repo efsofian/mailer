@@ -1,7 +1,7 @@
 import React from "react";
 import StripeCheckout from "react-stripe-checkout";
 import { useDispatch } from "react-redux";
-import { handleToken } from "../redux/auth/auth.actions";
+import { handleToken } from "../../redux/auth/auth.actions";
 
 const Payment = () => {
 	const dispatch = useDispatch();

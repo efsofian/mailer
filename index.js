@@ -7,6 +7,7 @@ require("./services/passport");
 require("./services/db")();
 const authRouter = require("./routes/auth.router");
 const billingRouter = require("./routes/billing.router");
+const surveyRouter = require("./routes/survey.router");
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.use(passport.session());
 
 app.use(authRouter);
 app.use(billingRouter);
+app.use(surveyRouter);
 
 if (process.env.NODE_ENV === "production") {
 	app.use(express.static("client/build"));
