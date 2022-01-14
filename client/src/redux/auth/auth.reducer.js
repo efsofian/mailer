@@ -1,5 +1,4 @@
 import { FETCH_USER } from "./auth.types";
-import { FETCH_SURVEYS } from "./auth.types";
 
 const authReducer = function (state = "", action) {
 	switch (action.type) {
